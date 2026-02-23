@@ -50,10 +50,11 @@ if st.button("Calculate Results"):
     st.subheader("📈 Final Amount After 2 Years")
     st.write("Player 1", p1_total)
     st.write("Player 2", p2_total)
-
+if p1_total <= 10000 and p2_total <= 10000
     if p1_total > p2_total:
         st.success("🏆 Player 1 Wins!")
     elif p2_total > p1_total:
         st.success("🏆 Player 2 Wins!")
     else:
+
         st.info("It's a Tie!")
