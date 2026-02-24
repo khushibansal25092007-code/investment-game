@@ -1,17 +1,10 @@
 import streamlit as st
+import random
 
 st.title("💰 Risk It or Rich It")
 
 st.write("Each player has ₹10,000 as vitual money")
 
-# Company growth rates (after 2 years)
-growth = {
-    "A": 1.5,
-    "B": 1.3,
-    "C": 1.8,
-    "D": 1.2,
-    "E": 2.0
-}
 st.header("Enter player details")
 p1_name=st.text_input("Enter player 1 name")
 p2_name=st.text_input("Enter player 2 name")
@@ -30,6 +23,14 @@ p2_D = st.number_input("P2 Amount in Company - Shakuni Capital Partners", 0, 100
 p2_E = st.number_input("P2 Amount in Company - Chai and Charts Pvt Ltd.", 0, 10000, 0)
 
 if st.button("Calculate Results"):
+    # Randomized growth rates (2-year multipliers)
+    growth = {
+        "A": random.uniform(1.4, 1.6),  # Stable
+        "B": random.choice([0.8, 1.9]),  # High risk
+        "C": 1.8 if random.random() < 0.8 else 1.1,  # Mostly strong, small crash chance
+        "D": random.choice([1.2, 2.2]),  # Shakuni surprise
+        "E": 2.0 if random.random() < 0.7 else 0.9   # High growth but crash risk
+    }
 
     p1_total = (
         p1_A * growth["A"] +
@@ -46,7 +47,16 @@ if st.button("Calculate Results"):
         p2_D * growth["D"] +
         p2_E * growth["E"]
     )
+if (p1_A + p1_B + p1_C + p1_D + p1_E) > 10000:
+        st.error("Player 1 invested more than ₹10,000!")
+        st.stop()
 
+    if (p2_A + p2_B + p2_C + p2_D + p2_E) > 10000:
+        st.error("Player 2 invested more than ₹10,000!")
+        st.stop()
+    st.subheader("📊 Company Growth Multipliers (After 2 Years)")
+    for company, rate in growth.items():
+        st.write(f"Company {company}: {rate:.2f}x")
     st.subheader("📈 Final Amount After 2 Years")
     st.write("Player 1", p1_total)
     st.write("Player 2", p2_total)
@@ -58,6 +68,7 @@ if st.button("Calculate Results"):
     else:
 
         st.info("It's a Tie!")
+
 
 
 
