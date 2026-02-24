@@ -47,7 +47,7 @@ if st.button("Calculate Results"):
         p2_D * growth["D"] +
         p2_E * growth["E"]
     )
-if (p1_A + p1_B + p1_C + p1_D + p1_E) > 10000:
+    if (p1_A + p1_B + p1_C + p1_D + p1_E) > 10000:
         st.error("Player 1 invested more than ₹10,000!")
         st.stop()
 
@@ -68,6 +68,7 @@ if (p1_A + p1_B + p1_C + p1_D + p1_E) > 10000:
     else:
 
         st.info("It's a Tie!")
+
 
 
 
