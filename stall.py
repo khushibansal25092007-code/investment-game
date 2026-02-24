@@ -1,8 +1,8 @@
 import streamlit as st
 
-st.title("💰 Mini Investment Game")
+st.title("💰 Risk It or Rich It")
 
-st.write("Each player starts with ₹10,000")
+st.write("Each player has ₹10,000 as vitual money")
 
 # Company growth rates (after 2 years)
 growth = {
@@ -16,18 +16,18 @@ st.header("Enter player details")
 p1_name=st.text_input("Enter player 1 name")
 p2_name=st.text_input("Enter player 2 name")
 st.header("Player 1 Investment")
-p1_A = st.number_input("Amount in Company A", 0, 10000, 0)
-p1_B = st.number_input("Amount in Company B", 0, 10000, 0)
-p1_C = st.number_input("Amount in Company C", 0, 10000, 0)
-p1_D = st.number_input("Amount in Company D", 0, 10000, 0)
-p1_E = st.number_input("Amount in Company E", 0, 10000, 0)
+p1_A = st.number_input("Amount in Company - Profit Prasadam Co.", 0, 10000, 0)
+p1_B = st.number_input("Amount in Company - Risky Rasgulla Ventures", 0, 10000, 0)
+p1_C = st.number_input("Amount in Company - Bullrun Babes Pvt Ltd.", 0, 10000, 0)
+p1_D = st.number_input("Amount in Company - Shakuni Capital Partners", 0, 10000, 0)
+p1_E = st.number_input("Amount in Company - Chai and Charts Pvt Ltd.", 0, 10000, 0)
 
 st.header("Player 2 Investment")
-p2_A = st.number_input("P2 Amount in Company A", 0, 10000, 0)
-p2_B = st.number_input("P2 Amount in Company B", 0, 10000, 0)
-p2_C = st.number_input("P2 Amount in Company C", 0, 10000, 0)
-p2_D = st.number_input("P2 Amount in Company D", 0, 10000, 0)
-p2_E = st.number_input("P2 Amount in Company E", 0, 10000, 0)
+p2_A = st.number_input("P2 Amount in Company - Profit Prasadam Co.", 0, 10000, 0)
+p2_B = st.number_input("P2 Amount in Company - Risky Rasgulla Ventures", 0, 10000, 0)
+p2_C = st.number_input("P2 Amount in Company - Bullrun Babes Pvt Ltd.", 0, 10000, 0)
+p2_D = st.number_input("P2 Amount in Company - Shakuni Capital Partners", 0, 10000, 0)
+p2_E = st.number_input("P2 Amount in Company - Chai and Charts Pvt Ltd.", 0, 10000, 0)
 
 if st.button("Calculate Results"):
 
@@ -58,5 +58,6 @@ if st.button("Calculate Results"):
     else:
 
         st.info("It's a Tie!")
+
 
 
