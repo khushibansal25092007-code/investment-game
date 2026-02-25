@@ -45,10 +45,10 @@ if st.button("Calculate Results"):
         p2_C * growth["C"] 
     )
     p1_risk=(
-        (p1_A*risk["A"]+p1_B*risk["B"]+p1_C*risk["C"])/10000
+        ((p1_A*risk["A"]+p1_B*risk["B"]+p1_C*risk["C"])/10000)*100
     )
     p2_risk=(
-        (p2_A*risk["A"]+p2_B*risk["B"]+p2_C*risk["C"])/10000
+        ((p2_A*risk["A"]+p2_B*risk["B"]+p2_C*risk["C"])/10000)*100
     )
     if (p1_A + p1_B + p1_C) > 10000:
         st.error("Player 1 invested more than ₹10,000!")
@@ -63,9 +63,9 @@ if st.button("Calculate Results"):
     st.subheader("📈 Final Amount After 2 Years")
     st.write("Player 1", p1_total)
     st.write("Player 2", p2_total)
-    st.subheader("Average Risk Taken")
-    st.write("Player 1","Risk:",p1_risk)
-    st.write("Player 2","Risk:",p2_risk)
+    st.subheader("Average Risk:")
+    st.write("Player 1","Risk:",p1_risk," %")
+    st.write("Player 2","Risk:",p2_risk," %")
     if p1_total > p2_total:
         st.success("🏆 Player 1 Wins!")
     elif p2_total > p1_total:
@@ -73,6 +73,7 @@ if st.button("Calculate Results"):
     else:
 
         st.info("It's a Tie!")
+
 
 
 
