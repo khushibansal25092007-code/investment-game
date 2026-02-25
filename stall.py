@@ -24,8 +24,6 @@ if st.button("Calculate Results"):
         "A": random.uniform(1.4, 1.6),  # Stable
         "B": random.choice([0.8, 1.9]),  # High risk
         "C": 1.8 if random.random() < 0.8 else 1.1,  # Mostly strong, small crash chance
-        "D": random.choice([1.2, 2.2]),  # Shakuni surprise
-        "E": 2.0 if random.random() < 0.7 else 0.9   # High growth but crash risk
     }
     risk = {
         "A":0.2,
@@ -73,6 +71,7 @@ if st.button("Calculate Results"):
     else:
 
         st.info("It's a Tie!")
+
 
 
 
