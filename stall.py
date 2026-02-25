@@ -12,15 +12,11 @@ st.header("Player 1 Investment")
 p1_A = st.number_input("Amount in Company - Profit Prasadam Co.", 0, 10000, 0)
 p1_B = st.number_input("Amount in Company - Risky Rasgulla Ventures", 0, 10000, 0)
 p1_C = st.number_input("Amount in Company - Bullrun Babes Pvt Ltd.", 0, 10000, 0)
-p1_D = st.number_input("Amount in Company - Shakuni Capital Partners", 0, 10000, 0)
-p1_E = st.number_input("Amount in Company - Chai and Charts Pvt Ltd.", 0, 10000, 0)
 
 st.header("Player 2 Investment")
 p2_A = st.number_input("P2 Amount in Company - Profit Prasadam Co.", 0, 10000, 0)
 p2_B = st.number_input("P2 Amount in Company - Risky Rasgulla Ventures", 0, 10000, 0)
 p2_C = st.number_input("P2 Amount in Company - Bullrun Babes Pvt Ltd.", 0, 10000, 0)
-p2_D = st.number_input("P2 Amount in Company - Shakuni Capital Partners", 0, 10000, 0)
-p2_E = st.number_input("P2 Amount in Company - Chai and Charts Pvt Ltd.", 0, 10000, 0)
 
 if st.button("Calculate Results"):
     # Randomized growth rates (2-year multipliers)
@@ -31,27 +27,34 @@ if st.button("Calculate Results"):
         "D": random.choice([1.2, 2.2]),  # Shakuni surprise
         "E": 2.0 if random.random() < 0.7 else 0.9   # High growth but crash risk
     }
+    risk = {
+        "A":0.2,
+        "B":0.7,
+        "C":0.1
+    }
 
     p1_total = (
         p1_A * growth["A"] +
         p1_B * growth["B"] +
         p1_C * growth["C"] +
-        p1_D * growth["D"] +
-        p1_E * growth["E"]
     )
 
     p2_total = (
         p2_A * growth["A"] +
         p2_B * growth["B"] +
         p2_C * growth["C"] +
-        p2_D * growth["D"] +
-        p2_E * growth["E"]
     )
-    if (p1_A + p1_B + p1_C + p1_D + p1_E) > 10000:
+    p1_risk=(
+        (p1_A*risk["A"]+p1_B*risk["B"]+p1_C*risk["C"])/10000
+    )
+    p2_risk=(
+        (p2_A*risk["A"]+p2_B*risk["B"]+p2_C*risk["C"])/10000
+    )
+    if (p1_A + p1_B + p1_C) > 10000:
         st.error("Player 1 invested more than ₹10,000!")
         st.stop()
 
-    if (p2_A + p2_B + p2_C + p2_D + p2_E) > 10000:
+    if (p2_A + p2_B + p2_C) > 10000:
         st.error("Player 2 invested more than ₹10,000!")
         st.stop()
     st.subheader("📊 Company Growth Multipliers (After 2 Years)")
@@ -60,7 +63,9 @@ if st.button("Calculate Results"):
     st.subheader("📈 Final Amount After 2 Years")
     st.write("Player 1", p1_total)
     st.write("Player 2", p2_total)
-    
+    st.subheader("Average Risk Taken")
+    st.write("Player 1","Risk:",p1_risk)
+    st.write("Player 2","Risk:",p2_risk)
     if p1_total > p2_total:
         st.success("🏆 Player 1 Wins!")
     elif p2_total > p1_total:
@@ -68,6 +73,7 @@ if st.button("Calculate Results"):
     else:
 
         st.info("It's a Tie!")
+
 
 
 
