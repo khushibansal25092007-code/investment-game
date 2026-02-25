@@ -36,13 +36,13 @@ if st.button("Calculate Results"):
     p1_total = (
         p1_A * growth["A"] +
         p1_B * growth["B"] +
-        p1_C * growth["C"] +
+        p1_C * growth["C"] 
     )
 
     p2_total = (
         p2_A * growth["A"] +
         p2_B * growth["B"] +
-        p2_C * growth["C"] +
+        p2_C * growth["C"] 
     )
     p1_risk=(
         (p1_A*risk["A"]+p1_B*risk["B"]+p1_C*risk["C"])/10000
@@ -73,6 +73,7 @@ if st.button("Calculate Results"):
     else:
 
         st.info("It's a Tie!")
+
 
 
 
