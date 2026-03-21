@@ -3,4 +3,4 @@ A simple analysis game developed for a stall demonstration.
 # DEVELOPED BY KHUSHI BANSAL
 ## NOTE ##
 This project is shared for reference/learning purpose only.
-Please do not copy or submit it as your own work.
+You are not allowed to copy,modify,distribute or use this code in any form without explicit permission from the author.
